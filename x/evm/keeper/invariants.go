@@ -43,8 +43,8 @@ func (k Keeper) BalanceInvariant() sdk.Invariant {
 			if evmBalance.Cmp(accountBalance.BigInt()) != 0 {
 				count++
 				msg += fmt.Sprintf(
-					"\tbalance mismatch for address %s: account balance %s, evm balance %s\n",
-					account.GetAddress(), accountBalance.String(), evmBalance.String(),
+					"\tbalance mismatch for address %s(%s): account balance %s, evm balance %s\n",
+					account.GetAddress(), ethAccount.EthAddress().String(), accountBalance.String(), evmBalance.String(),
 				)
 			}
 

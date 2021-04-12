@@ -19,6 +19,7 @@ func InitGenesis(ctx sdk.Context, k Keeper, accountKeeper types.AccountKeeper, d
 
 	data.Params.MaxGasLimitPerTx = types.DefaultMaxGasLimitPerTx
 	k.SetParams(ctx, data.Params)
+	return []abci.ValidatorUpdate{}
 
 	csdb := types.CreateEmptyCommitStateDB(k.GenerateCSDBParams(), ctx)
 	mode := viper.GetString(server.FlagEvmImportMode)
